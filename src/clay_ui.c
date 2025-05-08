@@ -1,6 +1,7 @@
 #include "clay.h"
 
 #include "colors.h"
+#include "fontids.h"
 
 [[maybe_unused]]
 static void RenderTopBar(void) {
@@ -41,7 +42,7 @@ static void RenderTopBar(void) {
             .cornerRadius = CLAY_CORNER_RADIUS(10),
         }) {
             CLAY_TEXT(CLAY_STRING("Файл"), CLAY_TEXT_CONFIG({
-                .fontId = 0,
+                .fontId = fontIdNormal42,
                 .fontSize = 42,
                 .textColor = CLAY_COLOR_WHITE
             }));
@@ -104,8 +105,8 @@ static void RenderTopBar(void) {
                             CLAY_TEXT(
                                     CLAY_STRING("Новый"),
                                     CLAY_TEXT_CONFIG({
-                                        .fontId = 0,
-                                        .fontSize = 40,
+                                        .fontId = fontIdNormal42,
+                                        .fontSize = 42,
                                         .textColor = CLAY_COLOR_WHITE
                                     })
                             );
@@ -135,8 +136,8 @@ static void RenderTopBar(void) {
                             CLAY_TEXT(
                                     CLAY_STRING("Выход"),
                                     CLAY_TEXT_CONFIG({
-                                        .fontId = 0,
-                                        .fontSize = 40,
+                                        .fontId = fontIdNormal42,
+                                        .fontSize = 42,
                                         .textColor = CLAY_COLOR_WHITE
                                     })
                             );
