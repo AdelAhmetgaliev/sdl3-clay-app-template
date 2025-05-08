@@ -7,8 +7,10 @@
 #include "clay.h"
 
 #include "config.h"
+#include "colors.h"
 #include "clay_error_handler.c"
 #include "clay_renderer_SDL3.c"
+#include "clay_ui.c"
 #include "utilities.c"
 
 typedef struct _AppState {
@@ -50,13 +52,12 @@ SDL_AppResult SDL_AppInit(void **appState, int argc, char *argv[]) {
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to allocate memory for the font array: %s", SDL_GetError());
     }
 
-    // TODO: Add some fonts
-    // TTF_Font *font = TTF_OpenFont("path-to-font/font-name.ttf", FONT_SIZE);
-    // if (!font) {
-    //     SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to load font: %s", SDL_GetError());
-    //     return SDL_APP_FAILURE;
-    // }
-    // state->rendererData.fonts[FONT_ID] = font;
+    TTF_Font *font = TTF_OpenFont("resources/basis33.ttf", 42);
+    if (!font) {
+        SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to load font: %s", SDL_GetError());
+        return SDL_APP_FAILURE;
+    }
+    state->rendererData.fonts[0] = font;
 
     uint64_t totalMemoryUse = Clay_MinMemorySize();
     Clay_Arena clayMemory = (Clay_Arena) {
@@ -134,9 +135,24 @@ SDL_AppResult SDL_AppIterate(void *appstate) {
     AppState *state = appstate;
 
     Clay_BeginLayout();
+    CLAY({
+            .id = CLAY_ID("OuterContainer"),
+            .backgroundColor = CLAY_COLOR_GREY,
+            .layout = {
+                .layoutDirection = CLAY_TOP_TO_BOTTOM,
+                .sizing = {
+                    .width = CLAY_SIZING_GROW(0),
+                    .height = CLAY_SIZING_GROW(0)
+                },
+                .padding = CLAY_PADDING_ALL(16),
+                .childGap = 16
+            }
+    }) {
+        RenderTopBar();
+    }
     Clay_RenderCommandArray renderCommands = Clay_EndLayout();
 
-    SDL_SetRenderDrawColor(state->rendererData.renderer, 70, 70, 70, 255);
+    SDL_SetRenderDrawColor(state->rendererData.renderer, 0, 0, 0, 255);
     SDL_RenderClear(state->rendererData.renderer);
 
     SDL_Clay_RenderClayCommands(&state->rendererData, &renderCommands);
