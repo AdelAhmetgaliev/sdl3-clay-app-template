@@ -196,6 +196,7 @@ static void SDL_Clay_RenderArc(
 
 SDL_Rect currentClippingRectangle;
 
+[[maybe_unused]]
 static void SDL_Clay_RenderClayCommands(
         Clay_SDL3RendererData *rendererData,
         Clay_RenderCommandArray *rcommands

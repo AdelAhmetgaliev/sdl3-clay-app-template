@@ -3907,7 +3907,7 @@ Clay_Vector2 Clay_GetScrollOffset() {
     if (openLayoutElement->id == 0) {
         Clay__GenerateIdForAnonymousElement(openLayoutElement);
     }
-    Clay_ClipElementConfig *clipConfig = Clay__FindElementConfigWithType(openLayoutElement, CLAY__ELEMENT_CONFIG_TYPE_CLIP).clipElementConfig;
+    [[maybe_unused]] Clay_ClipElementConfig *clipConfig = Clay__FindElementConfigWithType(openLayoutElement, CLAY__ELEMENT_CONFIG_TYPE_CLIP).clipElementConfig;
     for (int32_t i = 0; i < context->scrollContainerDatas.length; i++) {
         Clay__ScrollContainerDataInternal *mapping = Clay__ScrollContainerDataInternalArray_Get(&context->scrollContainerDatas, i);
         if (mapping->layoutElement == openLayoutElement) {
