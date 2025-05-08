@@ -1,5 +1,8 @@
 # Build files
 build/
 
+# Clangd cache
+.cache/
+
 # Project's build configuration files
 compile_commands.json
