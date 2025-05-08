@@ -22,7 +22,7 @@ static void RenderTopBar(void) {
             .cornerRadius = CLAY_CORNER_RADIUS(10)
     }) {
         CLAY({
-            .id = CLAY_ID("FileButton"),
+            .id = CLAY_ID("MenuButton"),
             .layout = {
                 .padding = { 16, 16, 8, 8 },
                 .sizing = {
@@ -37,14 +37,14 @@ static void RenderTopBar(void) {
             .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON,
             .cornerRadius = CLAY_CORNER_RADIUS(10),
         }) {
-            CLAY_TEXT(CLAY_STRING("Файл"), CLAY_TEXT_CONFIG({
+            CLAY_TEXT(CLAY_STRING("Меню"), CLAY_TEXT_CONFIG({
                 .fontId = fontIdNormal42,
                 .fontSize = 42,
                 .textColor = CLAY_COLOR_WHITE
             }));
 
             bool fileMenuVisible =
-                Clay_PointerOver(Clay_GetElementId(CLAY_STRING("FileButton"))) ||
+                Clay_PointerOver(Clay_GetElementId(CLAY_STRING("MenuButton"))) ||
                 Clay_PointerOver(Clay_GetElementId(CLAY_STRING("FileMenu")));
             if (fileMenuVisible) {
                 CLAY({
@@ -78,7 +78,7 @@ static void RenderTopBar(void) {
                             .cornerRadius = CLAY_CORNER_RADIUS(10)
                     }) {
                         CLAY({
-                                .id = CLAY_ID("NewButton"),
+                                .id = CLAY_ID("AuthorButton"),
                                 .layout = {
                                     .sizing = {
                                         .width = CLAY_SIZING_GROW(0),
@@ -95,7 +95,7 @@ static void RenderTopBar(void) {
                                 .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON
                         }) {
                             CLAY_TEXT(
-                                    CLAY_STRING("Новый"),
+                                    CLAY_STRING("Об авторе"),
                                     CLAY_TEXT_CONFIG({
                                         .fontId = fontIdNormal42,
                                         .fontSize = 42,
