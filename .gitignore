@@ -1,0 +1,5 @@
+# Build files
+build/
+
+# Project's build configuration files
+compile_commands.json
