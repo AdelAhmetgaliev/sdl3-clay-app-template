@@ -129,8 +129,8 @@ SDL_AppResult SDL_AppEvent(void *appState, SDL_Event *event) {
     return returnValue;
 }
 
-SDL_AppResult SDL_AppIterate(void *appstate) {
-    AppState *state = appstate;
+SDL_AppResult SDL_AppIterate(void *appState) {
+    AppState *state = appState;
 
     Clay_BeginLayout();
     CLAY({
