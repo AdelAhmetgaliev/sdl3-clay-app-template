@@ -21,10 +21,6 @@ static void RenderTopBar(void) {
             .backgroundColor = CLAY_COLOR_DARK_GREY,
             .cornerRadius = CLAY_CORNER_RADIUS(10)
     }) {
-        const bool overFileButton = Clay_PointerOver(Clay_GetElementId(CLAY_STRING("FileButton")));
-        const Clay_Color fileButtonBackColor =
-            overFileButton ? CLAY_COLOR_BUTTON_OVER : CLAY_COLOR_BUTTON;
-
         CLAY({
             .id = CLAY_ID("FileButton"),
             .layout = {
@@ -38,7 +34,7 @@ static void RenderTopBar(void) {
                     .y = CLAY_ALIGN_Y_CENTER
                 }
             },
-            .backgroundColor = fileButtonBackColor,
+            .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON,
             .cornerRadius = CLAY_CORNER_RADIUS(10),
         }) {
             CLAY_TEXT(CLAY_STRING("Файл"), CLAY_TEXT_CONFIG({
@@ -81,10 +77,6 @@ static void RenderTopBar(void) {
                             .backgroundColor = { 30, 30, 30, 255 },
                             .cornerRadius = CLAY_CORNER_RADIUS(10)
                     }) {
-                        const bool overNewButton = Clay_PointerOver(Clay_GetElementId(CLAY_STRING("NewButton")));
-                        const Clay_Color newButtonBackColor =
-                            overNewButton ? CLAY_COLOR_BUTTON_OVER : CLAY_COLOR_BUTTON;
-
                         CLAY({
                                 .id = CLAY_ID("NewButton"),
                                 .layout = {
@@ -100,7 +92,7 @@ static void RenderTopBar(void) {
                                         .left = 8,
                                     }
                                 },
-                                .backgroundColor = newButtonBackColor
+                                .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON
                         }) {
                             CLAY_TEXT(
                                     CLAY_STRING("Новый"),
@@ -111,10 +103,6 @@ static void RenderTopBar(void) {
                                     })
                             );
                         }
-
-                        const bool overExitButton = Clay_PointerOver(Clay_GetElementId(CLAY_STRING("ExitButton")));
-                        const Clay_Color exitButtonBackColor =
-                            overExitButton ? CLAY_COLOR_BUTTON_OVER : CLAY_COLOR_BUTTON;
 
                         CLAY({
                                 .id = CLAY_ID("ExitButton"),
@@ -131,7 +119,7 @@ static void RenderTopBar(void) {
                                         .left = 8
                                     }
                                 },
-                                .backgroundColor = exitButtonBackColor
+                                .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON
                         }) {
                             CLAY_TEXT(
                                     CLAY_STRING("Выход"),
