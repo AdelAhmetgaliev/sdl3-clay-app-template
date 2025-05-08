@@ -52,27 +52,10 @@ SDL_AppResult SDL_AppInit(void **appState, int argc, char *argv[]) {
     if (!state->rendererData.fonts) {
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to allocate memory for the font array: %s", SDL_GetError());
     }
-
-    TTF_Font *fontNormal24 = TTF_OpenFont("resources/basis33.ttf", 24);
-    if (!fontNormal24) {
-        SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to load font: %s", SDL_GetError());
+ 
+    if (!SDL_LoadFonts(state->rendererData.fonts)) {
         return SDL_APP_FAILURE;
     }
-    state->rendererData.fonts[fontIdNormal24] = fontNormal24;
-
-    TTF_Font *fontNormal32 = TTF_OpenFont("resources/basis33.ttf", 32);
-    if (!fontNormal32) {
-        SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to load font: %s", SDL_GetError());
-        return SDL_APP_FAILURE;
-    }
-    state->rendererData.fonts[fontIdNormal32] = fontNormal32;
-
-    TTF_Font *fontNormal42 = TTF_OpenFont("resources/basis33.ttf", 42);
-    if (!fontNormal42) {
-        SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Failed to load font: %s", SDL_GetError());
-        return SDL_APP_FAILURE;
-    }
-    state->rendererData.fonts[fontIdNormal42] = fontNormal42;
 
     uint64_t totalMemoryUse = Clay_MinMemorySize();
     Clay_Arena clayMemory = (Clay_Arena) {
