@@ -3,7 +3,7 @@
 #include "colors.h"
 
 [[maybe_unused]]
-static void RenderTopBar() {
+static void RenderTopBar(void) {
     CLAY({
             .id = CLAY_ID("TopBar"),
             .layout = {
