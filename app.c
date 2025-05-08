@@ -112,6 +112,11 @@ SDL_AppResult SDL_AppEvent(void *appState, SDL_Event *event) {
                     event->button.button == SDL_BUTTON_LEFT
             );
             break;
+        case SDL_EVENT_MOUSE_BUTTON_UP:
+            if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("ExitButton")))) {
+                returnValue = SDL_APP_SUCCESS;
+            }
+            break;
         case SDL_EVENT_MOUSE_WHEEL:
             Clay_UpdateScrollContainers(
                     true,
