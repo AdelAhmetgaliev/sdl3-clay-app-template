@@ -6,9 +6,10 @@ COMPILER="clang"
 LINKER="lld"
 
 # General target compiler flags
-GCFLAGS="-std=c23"
+GCFLAGS="-std=c23 -Iinclude/ -Isrc/ \
+    -D_REENTRANT -I/usr/include/libdecor-0"
 # General target linker flags
-GLFLAGS="-fuse-ld=${LINKER}"
+GLFLAGS="-fuse-ld=${LINKER} -lSDL3"
 
 # Release target compiler flags
 RCFLAGS="-O2 -fstack-clash-protection -fstack-protector-all -fcf-protection=full \
