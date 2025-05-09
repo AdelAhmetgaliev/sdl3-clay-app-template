@@ -165,16 +165,16 @@ static void RenderAboutAuthorPage(void) {
     CLAY({
             .id = CLAY_ID("AboutAuthorPage"),
             .floating = {
-                .offset = { .x=-425, .y=-300 },
                 .attachTo = CLAY_ATTACH_TO_ROOT,
                 .attachPoints = {
+                    .element = CLAY_ATTACH_POINT_CENTER_CENTER,
                     .parent = CLAY_ATTACH_POINT_CENTER_CENTER
                 }
             },
             .layout = {
                 .layoutDirection = CLAY_TOP_TO_BOTTOM,
                 .sizing = {
-                    .width = CLAY_SIZING_GROW( .min=500, .max=850 ),
+                    .width = CLAY_SIZING_GROW( .min=560, .max=850 ),
                     .height = CLAY_SIZING_GROW( .min=400, .max=600 )
                 }
             },
@@ -224,7 +224,7 @@ static void RenderAboutAuthorPage(void) {
                     },
                     .padding = {
                         .left = 16,
-                        .right = 0,
+                        .right = 16,
                         .top = 16,
                         .bottom = 0
                     }
@@ -252,7 +252,7 @@ static void RenderAboutAuthorPage(void) {
                     },
                     .padding = {
                         .left = 16,
-                        .right = 0,
+                        .right = 16,
                         .top = 0,
                         .bottom = 0
                     }
