@@ -46,7 +46,7 @@ static void RenderTopBar(void) {
                 }
             },
             .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON,
-            .cornerRadius = CLAY_CORNER_RADIUS(10),
+            .cornerRadius = CLAY_CORNER_RADIUS(10)
         }) {
             CLAY_TEXT(CLAY_STRING("Меню"), CLAY_TEXT_CONFIG({
                 .fontId = fontIdNormal42,
@@ -91,7 +91,7 @@ static void RenderTopBar(void) {
                                 },
                                 .childGap = 10
                             },
-                            .backgroundColor = { 30, 30, 30, 255 },
+                            .backgroundColor = CLAY_COLOR_DARKER_GREY,
                             .cornerRadius = CLAY_CORNER_RADIUS(10)
                     }) {
                         CLAY({
@@ -155,6 +155,160 @@ static void RenderTopBar(void) {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+[[maybe_unused]]
+static void RenderAboutAuthorPage(void) {
+    CLAY({
+            .id = CLAY_ID("AboutAuthorPage"),
+            .floating = {
+                .offset = { .x=-425, .y=-300 },
+                .attachTo = CLAY_ATTACH_TO_ROOT,
+                .attachPoints = {
+                    .parent = CLAY_ATTACH_POINT_CENTER_CENTER
+                }
+            },
+            .layout = {
+                .layoutDirection = CLAY_TOP_TO_BOTTOM,
+                .sizing = {
+                    .width = CLAY_SIZING_GROW( .min=500, .max=850 ),
+                    .height = CLAY_SIZING_GROW( .min=400, .max=600 )
+                }
+            },
+            .backgroundColor = CLAY_COLOR_DARK_GREY,
+            .cornerRadius = CLAY_CORNER_RADIUS(12)
+    }) {
+        CLAY({
+                .layout = {
+                    .childAlignment = {
+                        .x = CLAY_ALIGN_X_CENTER,
+                        .y = CLAY_ALIGN_Y_CENTER
+                    },
+                    .sizing = {
+                        .width = CLAY_SIZING_GROW(0),
+                        .height = CLAY_SIZING_GROW( .min=100, .max=120 )
+                    }
+                }
+        }) {
+            CLAY_TEXT(
+                    CLAY_STRING("ОБ АВТОРЕ"),
+                    CLAY_TEXT_CONFIG({
+                        .fontId = fontIdNormal42,
+                        .fontSize = 42,
+                        .textColor = CLAY_COLOR_WHITE
+                    })
+            );
+        }
+
+        CLAY({
+                .layout = {
+                    .sizing = {
+                        .width = CLAY_SIZING_GROW(0),
+                        .height = CLAY_SIZING_PERCENT(0.15)
+                    }
+                }
+        }) {}
+
+        CLAY({
+                .layout = {
+                    .childAlignment = {
+                        .x = CLAY_ALIGN_X_LEFT,
+                        .y = CLAY_ALIGN_Y_CENTER
+                    },
+                    .sizing = {
+                        .width = CLAY_SIZING_GROW(0),
+                        .height = CLAY_SIZING_GROW( .min=50, .max=60 )
+                    },
+                    .padding = {
+                        .left = 16,
+                        .right = 0,
+                        .top = 16,
+                        .bottom = 0
+                    }
+                }
+        }) {
+            CLAY_TEXT(
+                    CLAY_STRING("Автор: Ахметгалиев Адель Маратович"),
+                    CLAY_TEXT_CONFIG({
+                        .fontId = fontIdNormal42,
+                        .fontSize = 42,
+                        .textColor = CLAY_COLOR_WHITE
+                    })
+            );
+        }
+
+        CLAY({
+                .layout = {
+                    .childAlignment = {
+                        .x = CLAY_ALIGN_X_LEFT,
+                        .y = CLAY_ALIGN_Y_CENTER
+                    },
+                    .sizing = {
+                        .width = CLAY_SIZING_GROW(0),
+                        .height = CLAY_SIZING_GROW( .min=50, .max=60 )
+                    },
+                    .padding = {
+                        .left = 16,
+                        .right = 0,
+                        .top = 0,
+                        .bottom = 0
+                    }
+                }
+        }) {
+            CLAY_TEXT(
+                    CLAY_STRING("Почта: adel.ahmetgaliev@yandex.ru"),
+                    CLAY_TEXT_CONFIG({
+                        .fontId = fontIdNormal42,
+                        .fontSize = 42,
+                        .textColor = CLAY_COLOR_WHITE
+                    })
+            );
+        }
+        
+        CLAY({
+                .layout = {
+                    .childAlignment = {
+                        .x = CLAY_ALIGN_X_CENTER,
+                        .y = CLAY_ALIGN_Y_BOTTOM
+                    },
+                    .sizing = {
+                        .width = CLAY_SIZING_GROW(0),
+                        .height = CLAY_SIZING_GROW(0)
+                    },
+                    .padding = {
+                        .left = 8,
+                        .right = 0,
+                        .top = 0,
+                        .bottom = 32
+                    }
+                }
+        }) {
+            CLAY({
+                    .id = CLAY_ID("CloseAboutAuthorPageButton"),
+                    .layout = {
+                        .childAlignment = {
+                            .x = CLAY_ALIGN_X_CENTER,
+                            .y = CLAY_ALIGN_Y_CENTER
+                        },
+                        .sizing = {
+                            .width = CLAY_SIZING_GROW( .min=150, .max=150 ),
+                            .height = CLAY_SIZING_GROW( .min=70, .max=70 )
+                        }
+                    },
+                    .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON,
+                    .cornerRadius = CLAY_CORNER_RADIUS(10)
+            }) {
+                CLAY_TEXT(
+                        CLAY_STRING("Закрыть"),
+                        CLAY_TEXT_CONFIG({
+                            .fontId = fontIdNormal42,
+                            .fontSize = 42,
+                            .textColor = CLAY_COLOR_WHITE
+                        })
+                );
             }
         }
     }

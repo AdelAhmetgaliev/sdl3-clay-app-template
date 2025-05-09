@@ -152,6 +152,7 @@ SDL_AppResult SDL_AppIterate(void *appState) {
             }
     }) {
         RenderTopBar();
+        RenderAboutAuthorPage();
     }
     Clay_RenderCommandArray renderCommands = Clay_EndLayout();
 
