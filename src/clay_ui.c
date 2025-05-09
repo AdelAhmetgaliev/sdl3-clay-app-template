@@ -112,7 +112,8 @@ static void RenderTopBar(void) {
                                         .bottom = 0
                                     }
                                 },
-                                .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON
+                                .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON,
+                                .cornerRadius = CLAY_CORNER_RADIUS(10)
                         }) {
                             CLAY_TEXT(
                                     CLAY_STRING("Об авторе"),
@@ -142,7 +143,8 @@ static void RenderTopBar(void) {
                                         .bottom = 0
                                     }
                                 },
-                                .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON
+                                .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON,
+                                .cornerRadius = CLAY_CORNER_RADIUS(10)
                         }) {
                             CLAY_TEXT(
                                     CLAY_STRING("Выход"),
