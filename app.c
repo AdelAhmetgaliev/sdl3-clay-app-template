@@ -14,9 +14,14 @@
 #include "clay_ui.c"
 #include "utilities.c"
 
+typedef struct _GuiData {
+    bool isAboutAuthorPageVisible;
+} GuiData;
+
 typedef struct _AppState {
     SDL_Window *window;
     Clay_SDL3RendererData rendererData;
+    GuiData guiData;
 } AppState;
 
 SDL_AppResult SDL_AppInit(void **appState, int argc, char *argv[]) {
@@ -78,7 +83,7 @@ SDL_AppResult SDL_AppInit(void **appState, int argc, char *argv[]) {
 }
 
 SDL_AppResult SDL_AppEvent(void *appState, SDL_Event *event) {
-    (void) appState;
+    AppState *state = appState;
 
     SDL_AppResult returnValue = SDL_APP_CONTINUE;
 
@@ -116,6 +121,12 @@ SDL_AppResult SDL_AppEvent(void *appState, SDL_Event *event) {
             if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("ExitButton")))) {
                 returnValue = SDL_APP_SUCCESS;
             }
+            if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("AuthorButton")))) {
+                state->guiData.isAboutAuthorPageVisible = !state->guiData.isAboutAuthorPageVisible;
+            }
+            if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("CloseAboutAuthorPageButton")))) {
+                state->guiData.isAboutAuthorPageVisible = false;
+            }
             break;
         case SDL_EVENT_MOUSE_WHEEL:
             Clay_UpdateScrollContainers(
@@ -152,7 +163,9 @@ SDL_AppResult SDL_AppIterate(void *appState) {
             }
     }) {
         RenderTopBar();
-        RenderAboutAuthorPage();
+        if (state->guiData.isAboutAuthorPageVisible) {
+            RenderAboutAuthorPage();
+        }
     }
     Clay_RenderCommandArray renderCommands = Clay_EndLayout();
 
