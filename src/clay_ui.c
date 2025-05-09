@@ -176,8 +176,8 @@ static void RenderAboutAuthorPage(void) {
             .layout = {
                 .layoutDirection = CLAY_TOP_TO_BOTTOM,
                 .sizing = {
-                    .width = CLAY_SIZING_GROW( .min=560, .max=850 ),
-                    .height = CLAY_SIZING_GROW( .min=400, .max=600 )
+                    .width = CLAY_SIZING_GROW( .min=360, .max=850 ),
+                    .height = CLAY_SIZING_GROW( .min=200, .max=600 )
                 }
             },
             .backgroundColor = CLAY_COLOR_DARK_GREY,
@@ -191,7 +191,7 @@ static void RenderAboutAuthorPage(void) {
                     },
                     .sizing = {
                         .width = CLAY_SIZING_GROW(0),
-                        .height = CLAY_SIZING_GROW( .min=100, .max=120 )
+                        .height = CLAY_SIZING_GROW( .min=60, .max=80 )
                     }
                 }
         }) {
@@ -222,18 +222,20 @@ static void RenderAboutAuthorPage(void) {
                     },
                     .sizing = {
                         .width = CLAY_SIZING_GROW(0),
-                        .height = CLAY_SIZING_GROW( .min=50, .max=60 )
+                        .height = CLAY_SIZING_GROW( .min=90, .max=100 )
                     },
                     .padding = {
                         .left = 16,
                         .right = 16,
-                        .top = 16,
-                        .bottom = 0
+                        .top = 8,
+                        .bottom = 8
                     }
                 }
         }) {
             CLAY_TEXT(
-                    CLAY_STRING("Автор: Ахметгалиев Адель Маратович"),
+                    CLAY_STRING(
+                        "Автор: Ахметгалиев Адель Маратович\nПочта: adel.ahmetgaliev@yandex.ru"
+                    ),
                     CLAY_TEXT_CONFIG({
                         .fontId = fontIdNormal42,
                         .fontSize = 42,
@@ -242,34 +244,6 @@ static void RenderAboutAuthorPage(void) {
             );
         }
 
-        CLAY({
-                .layout = {
-                    .childAlignment = {
-                        .x = CLAY_ALIGN_X_LEFT,
-                        .y = CLAY_ALIGN_Y_CENTER
-                    },
-                    .sizing = {
-                        .width = CLAY_SIZING_GROW(0),
-                        .height = CLAY_SIZING_GROW( .min=50, .max=60 )
-                    },
-                    .padding = {
-                        .left = 16,
-                        .right = 16,
-                        .top = 0,
-                        .bottom = 0
-                    }
-                }
-        }) {
-            CLAY_TEXT(
-                    CLAY_STRING("Почта: adel.ahmetgaliev@yandex.ru"),
-                    CLAY_TEXT_CONFIG({
-                        .fontId = fontIdNormal42,
-                        .fontSize = 42,
-                        .textColor = CLAY_COLOR_WHITE
-                    })
-            );
-        }
-        
         CLAY({
                 .layout = {
                     .childAlignment = {
@@ -283,7 +257,7 @@ static void RenderAboutAuthorPage(void) {
                     .padding = {
                         .left = 8,
                         .right = 0,
-                        .top = 0,
+                        .top = 8,
                         .bottom = 32
                     }
                 }
