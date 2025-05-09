@@ -12,9 +12,15 @@ static void RenderTopBar(void) {
                     .width = CLAY_SIZING_GROW(0),
                     .height = CLAY_SIZING_GROW( .min=50, .max=65 )
                 },
-                .padding = { 16, 16, 8, 8 },
+                .padding = {
+                    .left = 16,
+                    .right = 16,
+                    .top = 8,
+                    .bottom = 8
+                },
                 .childGap = 8,
                 .childAlignment = {
+                    .x = CLAY_ALIGN_X_LEFT,
                     .y = CLAY_ALIGN_Y_CENTER
                 }
             },
@@ -24,7 +30,12 @@ static void RenderTopBar(void) {
         CLAY({
             .id = CLAY_ID("MenuButton"),
             .layout = {
-                .padding = { 16, 16, 8, 8 },
+                .padding = {
+                    .left = 16,
+                    .right = 16,
+                    .top = 8,
+                    .bottom = 8
+                },
                 .sizing = {
                     .width = CLAY_SIZING_GROW( .min=100, .max=130 ),
                     .height = CLAY_SIZING_PERCENT(0.95)
@@ -43,10 +54,10 @@ static void RenderTopBar(void) {
                 .textColor = CLAY_COLOR_WHITE
             }));
 
-            bool fileMenuVisible =
+            const bool isFileMenuVisible =
                 Clay_PointerOver(Clay_GetElementId(CLAY_STRING("MenuButton"))) ||
                 Clay_PointerOver(Clay_GetElementId(CLAY_STRING("FileMenu")));
-            if (fileMenuVisible) {
+            if (isFileMenuVisible) {
                 CLAY({
                         .id = CLAY_ID("FileMenu"),
                         .floating = {
@@ -56,7 +67,12 @@ static void RenderTopBar(void) {
                             }
                         },
                         .layout = {
-                            .padding = { 0, 0, 16, 16 }
+                            .padding = {
+                                .left = 0,
+                                .right = 0,
+                                .top = 16,
+                                .bottom = 16
+                            }
                         }
                 }) {
                     CLAY({
@@ -65,12 +81,13 @@ static void RenderTopBar(void) {
                                 .layoutDirection = CLAY_TOP_TO_BOTTOM,
                                 .sizing = {
                                     .width = CLAY_SIZING_GROW( .min=300, .max=500 ),
-                                    .height = CLAY_SIZING_GROW( .min=150, .max=500)
+                                    .height = CLAY_SIZING_GROW( .min=150, .max=500 )
                                 },
                                 .padding = {
                                     .left = 8,
                                     .right = 8,
                                     .top = 16,
+                                    .bottom = 0
                                 },
                                 .childGap = 10
                             },
@@ -90,6 +107,9 @@ static void RenderTopBar(void) {
                                     },
                                     .padding = {
                                         .left = 8,
+                                        .right = 0,
+                                        .top = 0,
+                                        .bottom = 0
                                     }
                                 },
                                 .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON
@@ -116,7 +136,10 @@ static void RenderTopBar(void) {
                                         .y = CLAY_ALIGN_Y_CENTER
                                     },
                                     .padding = {
-                                        .left = 8
+                                        .left = 8,
+                                        .right = 0,
+                                        .top = 0,
+                                        .bottom = 0
                                     }
                                 },
                                 .backgroundColor = Clay_Hovered() ? CLAY_COLOR_BUTTON_HOVER : CLAY_COLOR_BUTTON
