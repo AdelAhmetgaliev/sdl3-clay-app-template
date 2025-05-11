@@ -138,6 +138,16 @@ SDL_AppResult SDL_AppEvent(void *appState, SDL_Event *event) {
                     0.01f
             );
             break;
+        case SDL_EVENT_KEY_UP:
+            switch (event->key.key) {
+                case SDLK_Q:
+                    if (SDL_GetModState() == SDL_KMOD_LCTRL) {
+                        returnValue = SDL_APP_SUCCESS;
+                    }
+                    break;
+                default:
+                    break;
+            };
         default:
             break;
     };
@@ -150,7 +160,7 @@ SDL_AppResult SDL_AppIterate(void *appState) {
 
     Clay_BeginLayout();
     CLAY({
-            .id = CLAY_ID("OuterContainer"),
+            .id = CLAY_ID("MainContainer"),
             .backgroundColor = CLAY_COLOR_GREY,
             .layout = {
                 .layoutDirection = CLAY_TOP_TO_BOTTOM,
