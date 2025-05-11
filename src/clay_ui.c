@@ -95,7 +95,7 @@ static void RenderTopBar(void) {
                             .cornerRadius = CLAY_CORNER_RADIUS(10)
                     }) {
                         CLAY({
-                                .id = CLAY_ID("AuthorButton"),
+                                .id = CLAY_ID("AuthorPageButton"),
                                 .layout = {
                                     .sizing = {
                                         .width = CLAY_SIZING_GROW(0),
@@ -165,7 +165,7 @@ static void RenderTopBar(void) {
 [[maybe_unused]]
 static void RenderAboutAuthorPage(void) {
     CLAY({
-            .id = CLAY_ID("AboutAuthorPage"),
+            .id = CLAY_ID("AuthorPage"),
             .floating = {
                 .attachTo = CLAY_ATTACH_TO_ROOT,
                 .attachPoints = {
@@ -263,7 +263,7 @@ static void RenderAboutAuthorPage(void) {
                 }
         }) {
             CLAY({
-                    .id = CLAY_ID("CloseAboutAuthorPageButton"),
+                    .id = CLAY_ID("CloseAuthorPageButton"),
                     .layout = {
                         .childAlignment = {
                             .x = CLAY_ALIGN_X_CENTER,

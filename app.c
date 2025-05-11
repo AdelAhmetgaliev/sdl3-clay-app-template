@@ -121,10 +121,10 @@ SDL_AppResult SDL_AppEvent(void *appState, SDL_Event *event) {
             if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("ExitButton")))) {
                 returnValue = SDL_APP_SUCCESS;
             }
-            if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("AuthorButton")))) {
+            if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("AuthorPageButton")))) {
                 state->guiData.isAboutAuthorPageVisible = !state->guiData.isAboutAuthorPageVisible;
             }
-            if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("CloseAboutAuthorPageButton")))) {
+            if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("CloseAuthorPageButton")))) {
                 state->guiData.isAboutAuthorPageVisible = false;
             }
             break;
