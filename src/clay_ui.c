@@ -163,7 +163,7 @@ static void RenderTopBar(void) {
 }
 
 [[maybe_unused]]
-static void RenderAboutAuthorPage(void) {
+static void RenderAuthorPage(void) {
     CLAY({
             .id = CLAY_ID("AuthorPage"),
             .floating = {

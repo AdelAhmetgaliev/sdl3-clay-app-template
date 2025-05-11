@@ -15,7 +15,7 @@
 #include "utilities.c"
 
 typedef struct _GuiData {
-    bool isAboutAuthorPageVisible;
+    bool isAuthorPageVisible;
 } GuiData;
 
 typedef struct _AppState {
@@ -122,10 +122,10 @@ SDL_AppResult SDL_AppEvent(void *appState, SDL_Event *event) {
                 returnValue = SDL_APP_SUCCESS;
             }
             if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("AuthorPageButton")))) {
-                state->guiData.isAboutAuthorPageVisible = !state->guiData.isAboutAuthorPageVisible;
+                state->guiData.isAuthorPageVisible = !state->guiData.isAuthorPageVisible;
             }
             if (Clay_PointerOver(Clay_GetElementId(CLAY_STRING("CloseAuthorPageButton")))) {
-                state->guiData.isAboutAuthorPageVisible = false;
+                state->guiData.isAuthorPageVisible = false;
             }
             break;
         case SDL_EVENT_MOUSE_WHEEL:
@@ -173,8 +173,8 @@ SDL_AppResult SDL_AppIterate(void *appState) {
             }
     }) {
         RenderTopBar();
-        if (state->guiData.isAboutAuthorPageVisible) {
-            RenderAboutAuthorPage();
+        if (state->guiData.isAuthorPageVisible) {
+            RenderAuthorPage();
         }
     }
     Clay_RenderCommandArray renderCommands = Clay_EndLayout();
